@@ -61,7 +61,8 @@ class Adafruit_GFX : public Print {
 
   int16_t
     height(void),
-    width(void);
+    width(void),
+    cursor_x, cursor_y;
 
   uint8_t getRotation(void);
 
@@ -69,8 +70,7 @@ class Adafruit_GFX : public Print {
   const int16_t
     WIDTH, HEIGHT;   // This is the 'raw' display w/h - never changes
   int16_t
-    _width, _height, // Display w/h as modified by current rotation
-    cursor_x, cursor_y;
+    _width, _height; // Display w/h as modified by current rotation
   uint16_t
     textcolor, textbgcolor;
   uint8_t
