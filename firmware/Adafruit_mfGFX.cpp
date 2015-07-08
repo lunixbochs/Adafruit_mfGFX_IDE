@@ -55,58 +55,23 @@ Adafruit_GFX::Adafruit_GFX(int16_t w, int16_t h):
   textcolor = textbgcolor = 0xFFFF;
   wrap      = true;
   // Default to GLCDFONT to be compatible with existing code
-  setFont(GLCDFONT);		// May also be set to TIMESNR_8, CENTURY_8, COMICS_8 or TEST (for testing candidate fonts)
+  setFont(FIXEDSYS);		// May also be set to TIMESNR_8, CENTURY_8, COMICS_8 or TEST (for testing candidate fonts)
  }
 
 void Adafruit_GFX::setFont(uint8_t f) {
   font = f;
   switch(font) {
-#ifdef TIMESNEWROMAN8
-    case TIMESNR_8:
-      fontData = timesNewRoman_8ptBitmaps;
-	  fontDesc = timesNewRoman_8ptDescriptors;
-      fontKern = 1;
-      break;
-#endif
-#ifdef CENTURYGOTHIC8
-    case CENTURY_8:
-      fontData = centuryGothic_8ptBitmaps;
-	  fontDesc = centuryGothic_8ptDescriptors;
-      fontKern = 1;
-      break;
-#endif
-#ifdef ARIAL8
-    case ARIAL_8:
-      fontData = arial_8ptBitmaps;
-	  fontDesc = arial_8ptDescriptors;
-      fontKern = 1;
-      break;
-#endif
-#ifdef COMICSANSMS8
-    case COMICS_8:
-      fontData = comicSansMS_8ptBitmaps;
-	  fontDesc = comicSansMS_8ptDescriptors;
-      fontKern = 1;
-      break;
-#endif
-#ifdef GLCDFONTDEFAULT
-    case GLCDFONT:
-      fontData = glcdfontBitmaps;
-	  fontDesc = glcdfontDescriptors;
-      fontKern = 1;
-      break;
-#endif
-#ifdef TESTFONT
-   case TEST:
-      fontData = testBitmaps;
-	  fontDesc = testDescriptors;
+#ifdef FIXEDSYS
+    case FIXEDSYS:
+      fontData = fixedsysExcelsior301_11ptBitmaps;
+	  fontDesc = fixedsysExcelsior301_11ptDescriptors;
       fontKern = 1;
       break;
 #endif
 	default:
-      font = GLCDFONT;
-      fontData = glcdfontBitmaps;
-	  fontDesc = glcdfontDescriptors;
+      font = FIXEDSYS;
+      fontData = fixedsysExcelsior301_11ptBitmaps;
+    fontDesc = fixedsysExcelsior301_11ptDescriptors;
       fontKern = 1;
       break;
   }
